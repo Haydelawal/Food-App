@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <item
+        android:id="@+id/categoriesFragment"
+        android:title="Food Categories"
+        android:icon="@drawable/ic_category"
+
+        />
+
+    <item
+        android:id="@+id/favoritesFragment"
+        android:title="Favorite Foods"
+        android:icon="@drawable/ic_love"
+        />
+</menu>

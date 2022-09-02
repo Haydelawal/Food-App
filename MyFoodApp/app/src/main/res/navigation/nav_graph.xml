@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.myfoodapp.fragments.home.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/homeToRandom"
+            app:destination="@id/randomMealDetailsFragment" />
+        <action
+            android:id="@+id/homeToSea"
+            app:destination="@id/seaFoodFragment" />
+        <action
+            android:id="@+id/homeFragment_to_categoryDRFragment"
+            app:destination="@id/categoryDRFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_favoritesFragment"
+            app:destination="@id/favoritesFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_categoriesFragment"
+            app:destination="@id/categoriesFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/categoriesFragment"
+        android:name="com.example.myfoodapp.fragments.CategoriesFragment"
+        android:label="Categories"
+        tools:layout="@layout/fragment_categories" >
+        <action
+            android:id="@+id/action_categoriesFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_categoriesFragment_to_categoryDRFragment"
+            app:destination="@id/categoryDRFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/favoritesFragment"
+        android:name="com.example.myfoodapp.fragments.FavoritesFragment"
+        android:label="Favorites"
+        tools:layout="@layout/fragment_favorites" >
+        <action
+            android:id="@+id/action_favoritesFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/favoritesFragment_to_infoFaveFragment"
+            app:destination="@id/infoFaveFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/randomMealDetailsFragment"
+        android:name="com.example.myfoodapp.fragments.home.RandomMealDetailsFragment"
+        android:label="Meal Information"
+        tools:layout="@layout/fragment_random_meal_details" >
+        <action
+            android:id="@+id/randomToHome"
+            app:destination="@id/homeFragment" />
+        <argument
+            android:name="RandomMeal"
+            app:argType="com.example.myfoodapp.data.model.randommeal.Meal" />
+    </fragment>
+    <fragment
+        android:id="@+id/seaFoodFragment"
+        android:name="com.example.myfoodapp.fragments.home.SeaFoodFragment"
+        android:label="Sea Food"
+        tools:layout="@layout/fragment_sea_food" >
+        <action
+            android:id="@+id/seaToHome"
+            app:destination="@id/homeFragment" />
+        <argument
+            android:name="SeaFood"
+            app:argType="com.example.myfoodapp.data.model.popularmeals.CategoryPopularMeals" />
+    </fragment>
+    <fragment
+        android:id="@+id/categoryDRFragment"
+        android:name="com.example.myfoodapp.fragments.cdr.CategoryDRFragment"
+        android:label="Category Meals"
+        tools:layout="@layout/fragment_category_d_r" >
+        <action
+            android:id="@+id/categoryDR_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <argument
+            android:name="CDR_Items"
+            app:argType="com.example.myfoodapp.data.model.doublerecycler.Category" />
+        <action
+            android:id="@+id/categoryDRFragment_to_infoOfMealFromCDRFragment"
+            app:destination="@id/infoOfMealFromCDRFragment" />
+        <action
+            android:id="@+id/action_categoryDRFragment_to_categoriesFragment"
+            app:destination="@id/categoriesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/infoOfMealFromCDRFragment"
+        android:name="com.example.myfoodapp.fragments.cdr.InfoOfMealFromCDRFragment"
+        android:label="Meal Information"
+        tools:layout="@layout/fragment_info_of_meal_from_c_d_r" >
+        <action
+            android:id="@+id/infoOfMealFromCDRFragment_to_categoryDRFragment"
+            app:destination="@id/categoryDRFragment" />
+        <argument
+            android:name="InfoOfMeal"
+            app:argType="com.example.myfoodapp.data.model.popularmeals.CategoryPopularMeals" />
+    </fragment>
+    <fragment
+        android:id="@+id/infoFaveFragment"
+        android:name="com.example.myfoodapp.InfoFaveFragment"
+        android:label="Meal Information"
+        tools:layout="@layout/fragment_info_fave" >
+        <action
+            android:id="@+id/infoFaveFragment_to_favoritesFragment"
+            app:destination="@id/favoritesFragment" />
+        <argument
+            android:name="InfoFaveMeal"
+            app:argType="com.example.myfoodapp.data.model.randommeal.Meal" />
+    </fragment>
+</navigation>
